@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import SquaresTexture from "../components/textures/SquaresTexture";
-import texture from '/images/texture.svg'
+import texture from "/images/texture.svg";
 
 const Home: NextPage = () => {
   return (
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       </header>
 
       <main className="px-4 max-w-screen-xl mx-auto lg:px-10">
-        <section className="flex flex-col justify-between items-center grid-cols-2 pt-8 lg:flex-row">
+        <section className="flex flex-col justify-between items-center pt-8 pb-20 gap-14 lg:flex-row">
           <div className="flex flex-col gap-4 max-w-prose">
             <span className="text-accent font-bold">EBOOK</span>
             <h1 className="text-5xl leading-tight text-primary font-bold">
@@ -50,6 +50,26 @@ const Home: NextPage = () => {
               objectFit="contain"
             />
           </div>
+        </section>
+
+        <section className="grid grid-cols-1 lg:grid-cols-12 py-20 lg:flex-row">
+          <div className="col-span-3 mb-6">
+            <h2 className="text-primary font-bold text-2xl">
+              What&apos;s inside
+            </h2>
+            <div className="w-3/12 h-0.5 bg-accent mt-2" />
+          </div>
+
+          <p className="col-span-6 text-primary text-lg">
+            Consumer expectations are shifting and technology is developing
+            faster than ever. But in order for businesses to move swiftly in a
+            digital-fast environment, they first need to slow down. Download the
+            ebook to discover: What it takes to find simplicity in a solution
+            How key filters can break down behemoth tasks What’s needed to
+            achieve success in a digital-fast world Download Strategy in a
+            Digital-Fast World to learn how to use insights to find your core
+            focus areas and inform decision-making around your digital strategy.
+          </p>
         </section>
       </main>
     </div>
