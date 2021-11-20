@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
+      <header className="py-12 px-4 max-w-screen-xl mx-auto">
         <Image src="/indebted-logo.svg" alt="InDebted Logo" width={162} height={30} />
       </header>
       
