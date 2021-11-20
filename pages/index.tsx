@@ -11,6 +11,22 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <header>
+        <Image src="/indebted-logo.svg" alt="InDebted Logo" width={162} height={30} />
+      </header>
+      
+      <section className="flex flex-col lg:flex-row"> 
+        <div className="flex flex-col">
+          <span>EBOOK</span>
+          <h1>Design Engineering Handbook</h1>
+          <p>Bring design and development closer together to improve collaboration, reduce friction, and innovate faster.</p>
+
+          <a className="bg-primary">Download now</a>
+        </div>
+
+        <Image src="/images/design-engineering-cover.jpeg" alt="Design engineering Ebook cover" width={325} height={434} />
+      </section>
+
     </div>
   )
 }
