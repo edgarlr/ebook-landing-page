@@ -40,11 +40,11 @@ const ShareActions = ({ url, message }: Props) => {
 
   return (
     <div >
-      <ol className="flex justify-between px-1">
+      <ol className="flex justify-between px-1 pt-4 pb-2">
         <li>
-          <button  className="text-accent text-sm py-4 hover:underline" onClick={onFacebookShare}>Share on Facebook</button>
+          <button  className="text-accent text-sm py-2 hover:underline" onClick={onFacebookShare}>Share on Facebook</button>
         </li>
-        <li className="text-accent text-sm py-4 hover:underline">
+        <li className="text-accent text-sm py-2 hover:underline">
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -55,7 +55,7 @@ const ShareActions = ({ url, message }: Props) => {
           </a>
         </li>
 
-        <li className="text-accent text-sm py-4 hover:underline">
+        <li className="text-accent text-sm py-2 hover:underline">
           <a
             target="_blank"
             rel="noopener noreferrer"
