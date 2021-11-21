@@ -1,0 +1,27 @@
+@layer base {
+  p,
+  ul,
+  ol,
+  li {
+    @apply text-primary;
+  }
+
+  h1 {
+    @apply text-primary font-bold text-5xl leading-tight;
+  }
+
+  h2 {
+    @apply text-primary font-bold text-3xl;
+  }
+
+  h3 {
+    @apply text-primary font-bold text-2xl
+  }
+ 
+
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}

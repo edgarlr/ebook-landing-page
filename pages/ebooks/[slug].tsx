@@ -21,6 +21,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ ebook 
     share_image: shareImage, 
     long_description: longDescription 
   } = ebook!
+
   const [formStatus, setFormStatus] = useState<FormStatus>({ status: "idle" })
   const fullNameField = useUncrontrolledField({ type: 'text', id: 'name' });
   const workEmailField = useUncrontrolledField({ type: 'email', id: 'email' });
@@ -86,14 +87,12 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ ebook 
         <section className="flex flex-col justify-between items-center pt-8 pb-20 gap-14 lg:flex-row">
           <div className="flex flex-col gap-4 max-w-prose">
             <span className="text-accent font-bold">EBOOK</span>
-            <h1 className="text-5xl leading-tight text-primary font-bold">
-              {title}
-            </h1>
-            <p className="text-lg text-primary">
+            <h1>{title}</h1>
+            <p className="text-lg ">
               {shortDescription}
             </p>
 
-            <button onClick={handleOnHeroDownloadClick} className="bg-accent border-2 border-accent cursor-pointer text-white font-bold py-2 px-6 mt-4 rounded-full w-max hover:text-accent hover:bg-white">
+            <button onClick={handleOnHeroDownloadClick} className="cta-button">
               Download now
             </button>
           </div>
@@ -109,15 +108,15 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ ebook 
           </div>
         </section>
 
-        <section className="max-w-prose mx-auto lg:max-w-none grid grid-cols-1 lg:grid-cols-12 py-20 lg:flex-row">
+        <section className="max-w-prose mx-auto lg:max-w-none relative grid grid-cols-1 lg:grid-cols-12 py-20 lg:flex-row">
           <div className="col-span-3 mb-6">
-            <h2 className="text-primary font-bold text-2xl">
+            <h2 className=" font-bold text-2xl">
               What&apos;s inside
             </h2>
             <div className="w-3/12 h-0.5 bg-accent mt-2" />
           </div>
 
-          <p className="col-span-6 text-primary text-lg">
+          <p className="col-span-6 text-lg">
             {longDescription}
           </p>
         </section>
@@ -126,19 +125,19 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ ebook 
           <div className="col-span-6 bg-white shadow-xl py-14 px-6 rounded-lg lg:col-start-4 lg:px-28">
             {formStatus.status === "success" ? (
               <>
-                <h2 className="text-primary font-bold text-3xl mb-2 text-center">Thanks for downloading!</h2>
-                <p className="text-center text-primary">You can also share it with your colleges</p>
+                <h2 className="mb-2 text-center">Thanks for downloading!</h2>
+                <p className="text-center ">You can also share it with your colleges</p>
                 <ShareActions url="/" message="Design Engineering Handbook" />
               </>
             ) : (<>
-              <h2 className="text-primary font-bold text-3xl text-center mb-6">Get your copy</h2>
+              <h2 className="text-center mb-6">Get your copy</h2>
               <form onSubmit={handleOnSubmit} className="flex flex-col justify-center gap-6">
-                <input {...fullNameField} placeholder="Full name" className="w-full border border-gray-200 rounded-md px-5 py-2" />
-                <input {...workEmailField} placeholder="Work email" className="w-full border border-gray-200 rounded-md px-5 py-2" />
+                <input {...fullNameField} placeholder="Full name" className="form-field" />
+                <input {...workEmailField} placeholder="Work email" className="form-field" />
                 
                 {formStatus.status === "error" && <span className="text-sm text-red-400">{formStatus.message}*</span>}
 
-                <button onClick={handleOnSubmit} disabled={formStatus.status === "loading"} className="bg-accent border-2 border-accent mx-auto cursor-pointer text-white font-bold py-2 px-6 rounded-full w-max hover:text-accent hover:bg-white disabled:opacity-50">
+                <button onClick={handleOnSubmit} disabled={formStatus.status === "loading"} className="cta-button mx-auto">
                   {formStatus.status === 'loading' ? 'Submitting...' : 'Download now'}
                 </button>
               </form>

@@ -1,0 +1,9 @@
+@layer components {
+  .cta-button {
+    @apply bg-accent border-2 border-accent cursor-pointer text-white font-bold py-2 px-6 rounded-full w-max hover:text-accent hover:bg-white disabled:opacity-50;
+  }
+
+  .form-field {
+    @apply w-full border border-gray-200 rounded-md px-5 py-2;
+  }
+}
