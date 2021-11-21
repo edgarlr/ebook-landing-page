@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: 'https://indebted-ebooks.vercel.app/sitemap.xml
