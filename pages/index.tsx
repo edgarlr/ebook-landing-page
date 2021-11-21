@@ -3,8 +3,10 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { EventHandler, MouseEventHandler, useState } from "react";
 import SquaresTexture from "../components/textures/SquaresTexture";
+import { SITE_URL } from "lib/constants";
+import ShareActions from "components/ShareActions/ShareActions";
 
 type FormStatus = {
   status: "idle" | "error" | "success" | "loading"
@@ -52,6 +54,19 @@ const Home: NextPage = () => {
     router.push('#downloadForm')
     fullNameField.ref.current?.focus()
   }
+
+
+  
+
+  // const onCopyToClipboard = (e: MouseEventHandler<HTMLButtonElement>) => {
+  //   e.preventDefault()
+  //   if (navigator.clipboard) {
+  //     navigator.clipboard
+  //       .writeText(url)
+  //       .then(() => setIsCopied(true))
+  //       .catch(console.error)
+  //   }
+  // }
 
   return (
     <div className="relative ">
@@ -123,17 +138,25 @@ const Home: NextPage = () => {
 
         <section className="max-w-prose mx-auto lg:max-w-none relative grid grid-cols-1 lg:grid-cols-12 py-20 lg:flex-row" id="downloadForm">
           <div className="col-span-6 bg-white shadow-xl py-14 px-6 rounded-lg lg:col-start-4 lg:px-28">
-            <h2 className="text-primary font-bold text-3xl text-center mb-6">Get your copy</h2>
-            <form onSubmit={handleOnSubmit} className="flex flex-col justify-center gap-6">
-              <input {...fullNameField} placeholder="Full name" className="w-full border border-gray-200 rounded-md px-5 py-2" />
-              <input {...workEmailField} placeholder="Work email" className="w-full border border-gray-200 rounded-md px-5 py-2" />
-              
-              {formStatus.status === "error" && <span className="text-sm text-red-400">{formStatus.message}*</span>}
+            {formStatus.status === "success" ? (
+              <>
+                <h2 className="text-primary font-bold text-3xl mb-2 text-center">Thanks for downloading!</h2>
+                <p className="text-center text-primary">You can also share it with your colleges</p>
+                <ShareActions url="/" message="Design Engineering Handbook" />
+              </>
+            ) : (<>
+              <h2 className="text-primary font-bold text-3xl text-center mb-6">Get your copy</h2>
+              <form onSubmit={handleOnSubmit} className="flex flex-col justify-center gap-6">
+                <input {...fullNameField} placeholder="Full name" className="w-full border border-gray-200 rounded-md px-5 py-2" />
+                <input {...workEmailField} placeholder="Work email" className="w-full border border-gray-200 rounded-md px-5 py-2" />
+                
+                {formStatus.status === "error" && <span className="text-sm text-red-400">{formStatus.message}*</span>}
 
-              <button onClick={handleOnSubmit} disabled={formStatus.status === "loading"} className="bg-accent border-2 border-accent mx-auto cursor-pointer text-white font-bold py-2 px-6 rounded-full w-max hover:text-accent hover:bg-white disabled:opacity-50">
-                {formStatus.status === 'loading' ? 'Submitting...' : 'Download now'}
-              </button>
-            </form>
+                <button onClick={handleOnSubmit} disabled={formStatus.status === "loading"} className="bg-accent border-2 border-accent mx-auto cursor-pointer text-white font-bold py-2 px-6 rounded-full w-max hover:text-accent hover:bg-white disabled:opacity-50">
+                  {formStatus.status === 'loading' ? 'Submitting...' : 'Download now'}
+                </button>
+              </form>
+            </>)}
           </div>
         </section>
       </main>
