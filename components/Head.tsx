@@ -1,6 +1,6 @@
 import React from 'react'
 import NextHead from 'next/head'
-import { SITE_URL } from 'lib/constants'
+import { SITE_NAME, SITE_URL, TWITTER_USERNAME } from 'lib/constants'
 import { useRouter } from 'next/router'
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 }
 
 const Head = ({ title, description, type = 'website', image }: Props) => {
-  const fullPageTitle = `${title} | InDebted`
+  const fullPageTitle = `${title} | ${SITE_NAME}`
   const router = useRouter()
 
   return (
@@ -38,7 +38,7 @@ const Head = ({ title, description, type = 'website', image }: Props) => {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={image} />
-      <meta name="twitter:site" content="@indebtedhq" />
+      <meta name="twitter:site" content={TWITTER_USERNAME} />
     </NextHead>
   )
 }
