@@ -10,7 +10,7 @@ type Props = {
   image?: string
 }
 
-const Head = ({ title, description, type = 'website', image }: Props) => {
+const Head: React.FC<Props> = ({ title, description, type = 'website', image, children }) => {
   const fullPageTitle = `${title} | ${SITE_NAME}`
   const router = useRouter()
 
@@ -39,6 +39,7 @@ const Head = ({ title, description, type = 'website', image }: Props) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:site" content={TWITTER_USERNAME} />
+      {children}
     </NextHead>
   )
 }
