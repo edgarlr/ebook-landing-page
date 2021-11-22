@@ -2,6 +2,7 @@ import React from 'react'
 import NextHead from 'next/head'
 import { SITE_NAME, SITE_URL, TWITTER_USERNAME } from 'lib/constants'
 import { useRouter } from 'next/router'
+import { getMediaURL } from './utils/get-media-url'
 
 type Props = {
   title: string
@@ -29,7 +30,7 @@ const Head: React.FC<Props> = ({ title, description, type = 'website', image, ch
       <meta property="og:title" content={fullPageTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={`${SITE_URL}${router.asPath}`} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={getMediaURL(image)} />
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Language" content="en" />
@@ -37,7 +38,7 @@ const Head: React.FC<Props> = ({ title, description, type = 'website', image, ch
       <meta name="twitter:title" content={fullPageTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={getMediaURL(image)} />
       <meta name="twitter:site" content={TWITTER_USERNAME} />
       {children}
     </NextHead>
