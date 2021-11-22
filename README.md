@@ -6,13 +6,13 @@ Currently the project is mocking an API data response in [`lib/data.json`](https
 
 ```json
   {
-    "title": "<string>", // Main title of the EBook
-    "slug": "<string>", // Will be used in the page url
-    "short_description": "<string>", // Displayed below the main headline, Will also be used in the SEO
-    "share_image": "<string>",  // OG Image used for SEO
-    "cover": "<string>", // Cover of the file
-    "file_url": "<string>", // File url
-    "long_description": "<string>" // Displayed in the `What's inside` section.
+    "title": "<string> - Main title of the EBook", 
+    "slug": "<string> - Will be used in the page url", 
+    "short_description": "<string> - Displayed below the main headline, Will also be used in the SEO", 
+    "share_image": "<string> - OG Image used for SEO",
+    "cover": "<string> - Cover of the file",
+    "file_url": "<string> - File url",
+    "long_description": "<string> - Displayed in the What's inside section."
   }
 ```
 
