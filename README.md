@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EBook Landing Page
+Ebook lading page site for InDebted Assestment
 
-## Getting Started
+## Adding more ebooks
+Currently the project is mocking an API data response in [`lib/data.json`](https://github.com/edgarlr/ebook-landing-page/blob/main/lib/data.json). Adding more ebooks pages is as simple as adding a new object inside the array with the following structure. In a deeper integreation, all these content could be managed from a CMS.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```json
+  {
+    "title": "<string>", // Main title of the EBook
+    "slug": "<string>", // Will be used in the page url
+    "short_description": "<string>", // Displayed below the main headline, Will also be used in the SEO
+    "share_image": "<string>",  // OG Image used for SEO
+    "cover": "<string>", // Cover of the file
+    "file_url": "<string>", // File url
+    "long_description": "<string>" // Displayed in the `What's inside` section.
+  }
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Sitemap
+The sitemap is also generated dynamically at request time in [`pages/sitemap.xml.tsx`](https://github.com/edgarlr/ebook-landing-page/blob/main/pages/sitemap.xml.tsx) based on the [`lib/data.json`](https://github.com/edgarlr/ebook-landing-page/blob/main/lib/data.json) content.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Built using:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Framework: [Next.js](https://nextjs.org)
+  - [Tailwind](https://tailwindcss.com/docs)
+  - [TypeScript](https://nextjs.org/docs/basic-features/typescript)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Designed on Figma
+  - [Figma File](https://www.figma.com/file/peaqYv9m05r0XqEq0jaSRq/Ebook-Landing-Page-(InDebted-CH)?node-id=0%3A1)
 
-## Learn More
+## EBook Note
+The original EBook page can be found in: [https://www.designbetter.co/design-engineering-handbook](https://www.designbetter.co/design-engineering-handbook)
 
-To learn more about Next.js, take a look at the following resources:
+## Running Locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone this repository
+2. Run `yarn install` to install the dependencies
+3. Once the dependencies are installed, run `yarn run dev` to start the dev server on `localhost:3000`
