@@ -2,8 +2,7 @@ import { SITE_URL } from "lib/constants";
 import { NextPageContext } from "next";
 import { getAllEbooks } from "lib/api";
 
-const createSitemap = (ebooks: TEbook[]) => `
-  <?xml version="1.0" encoding="UTF-8"?>
+const createSitemap = (ebooks: TEbook[]) => `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${SITE_URL}</loc>
